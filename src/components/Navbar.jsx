@@ -7,7 +7,7 @@ const Navbar = () => {
   const {searchNewsInput, setSearchNewsInput} = useContext(AppContext)
 
   return (
-    <div className="h-11 flex justify-between p-3 pr-24 mb-2">
+    <div className="h-11 flex justify-between py-4 pl-6 pr-1 mb-2">
       <div className="flex">
         <p className="font-extrabold mr-3">CryptoLogo</p>
         <a href="/" className="ml-8 mr-8 font-semibold">
