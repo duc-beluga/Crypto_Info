@@ -9,7 +9,7 @@ import Team from './pages/Team';
 
 // Routing
 const router = createBrowserRouter([
-  {
+  { 
     path: "/",
     element: <App />
   },
