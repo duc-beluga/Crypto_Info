@@ -4,10 +4,10 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
-  const {searchNewsInput, setSearchNewsInput} = useContext(AppContext)
+  const { searchNewsInput, setSearchNewsInput } = useContext(AppContext);
 
   return (
-    <div className="h-11 flex justify-between p-3 pr-0 mb-2">
+    <div className="h-9 flex justify-between p-3 pr-0 mb-2">
       <div className="flex">
         <p className="font-extrabold mr-3">CryptoLogo</p>
         <a href="/" className="ml-8 mr-8 font-semibold">
