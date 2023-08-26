@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
+  const {searchNewsInput, setSearchNewsInput} = useContext(AppContext)
+
   return (
     <div className="h-11 flex justify-between p-3 pr-0 mb-2">
       <div className="flex">
@@ -10,7 +13,7 @@ const Navbar = () => {
         <a href="/" className="ml-8 mr-8 font-semibold">
           Home
         </a>
-        <a href="#" className="ml-8 mr-8 font-semibold">
+        <a href="/" className="ml-8 mr-8 font-semibold">
           Team
         </a>
       </div>
@@ -19,7 +22,9 @@ const Navbar = () => {
         <input
           type="search"
           placeholder="Search news..."
-          className="p-1 pr-24 m-0 focus:outline-none text-xs"
+          className="p-1 pr-24 m-0 focus:outline-none text-xs w-5/6"
+          value={searchNewsInput}
+          onChange={(e) => setSearchNewsInput(e.target.value)}
         />
       </div>
     </div>
