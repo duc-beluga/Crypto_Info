@@ -17,12 +17,12 @@ const Navbar = () => {
           Team members
         </a>
       </div>
-      <div className="bg-white flex h-8 p-1 align-middle justify-center rounded-md">
+      <div className="bg-white flex w-72 h-8 p-1 align-middle justify-center rounded-md">
         <FontAwesomeIcon icon={faMagnifyingGlass} className="pt-1 pl-2 pr-2" />
         <input
           type="search"
           placeholder="Search news..."
-          className="p-1 pr-24 m-0 focus:outline-none text-xs w-5/6"
+          className="p-1 pr-4 m-0 focus:outline-none text-xs w-5/6"
           value={searchNewsInput}
           onChange={(e) => setSearchNewsInput(e.target.value)}
         />

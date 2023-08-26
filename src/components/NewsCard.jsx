@@ -23,5 +23,4 @@ const NewsCard = ({ news, index }) => {
     </div>
   );
 };
-
 export default NewsCard;
