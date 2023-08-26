@@ -13,8 +13,8 @@ const Navbar = () => {
         <a href="/" className="ml-8 mr-8 font-semibold">
           Home
         </a>
-        <a href="/" className="ml-8 mr-8 font-semibold">
-          Team
+        <a href="/team" className="ml-8 mr-8 font-semibold">
+          Team members
         </a>
       </div>
       <div className="bg-white flex h-8 p-1 align-middle justify-center rounded-md">

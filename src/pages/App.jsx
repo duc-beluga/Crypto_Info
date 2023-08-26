@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import AnalyticsCard from "./components/AnalyticsCard"; 
-import SwapCard from "./components/SwapCard";
-import News from "./components/News";
+import Navbar from "../components/Navbar";
+import AnalyticsCard from "../components/AnalyticsCard"; 
+import SwapCard from "../components/SwapCard";
+import News from "../components/News";
 
 function App() {
   return (
