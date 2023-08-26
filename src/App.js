@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import AnalyticsCard from "./components/AnalyticsCard";
-import NewsCard from "./components/NewsCard";
+import AnalyticsCard from "./components/AnalyticsCard"; 
 import SwapCard from "./components/SwapCard";
 import News from "./components/News";
 
