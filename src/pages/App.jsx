@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="bg-gradient-to-b from-[#F0DCB1] h-screen flex flex-col pr-4"> 
       <Navbar/>
-      <div className="flex flex-grow">
-        <div className="flex flex-col w-80 mr-7 ">
+      <div className="flex flex-grow w-full h-full">
+        <div className="flex flex-col w-1/3 mr-7">
           <SwapCard/>
           <AnalyticsCard/>
         </div>
