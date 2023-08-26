@@ -1,0 +1,3 @@
+const useFetch = () => {
+  // Code here
+}
