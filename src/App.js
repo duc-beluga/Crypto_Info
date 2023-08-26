@@ -7,16 +7,16 @@ import News from "./components/News";
 
 function App() {
   return (
-    <div className="bg-gradient-to-b from-[#F0DCB1] h-screen"> 
+    <div className="bg-gradient-to-b from-[#F0DCB1] h-screen flex flex-col"> 
       <Navbar/>
-      <div className="flex  ">
-        <div className="flex flex-col   w-96 mr-10">
+      <div className="flex flex-grow">
+        <div className="flex flex-col w-80 mr-7 bg-red-300">
           <SwapCard/>
           <AnalyticsCard/>
         </div>
-        <div className="">
+        
           <News/>
-        </div>
+        
       </div>
     </div>
   );
