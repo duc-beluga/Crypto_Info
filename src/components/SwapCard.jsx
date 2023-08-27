@@ -19,7 +19,7 @@ const SwapCard = () => {
     if (inputAmount) {
       fetchPrice();
     }
-  }, [inputAmount]);
+  }, [inputAmount, inputTok]);
   return (
     <div className="h-72 m-5 mb-3 border border-slate-300 rounded-lg shadow-xl flex flex-col p-2 bg-white">
       <div>Swap Icon</div>
@@ -28,7 +28,7 @@ const SwapCard = () => {
           <div className="text-xs">You pay</div>
           <select
             name="Coin"
-            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs"
+            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs p-1"
             value={inputTok}
             onChange={(e) => setInputTok(e.target.value)}
           >
@@ -48,7 +48,7 @@ const SwapCard = () => {
           <div className="text-xs">You receive</div>
           <select
             name="Coin"
-            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs"
+            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs p-1"
           >
             <option value="1">ETH</option>
           </select>
