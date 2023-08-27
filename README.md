@@ -9,12 +9,13 @@ Cryptocurrency has transformed finance, offering decentralized transactions and 
 Crypto Info is a platform that enables crypto users to connect their crypto wallets and perform exchanges on them.
 
 ### Features:
-- Swap wallets and view the exchange rates
+- Connect tour your wallet
+- View exchange rates between tokens
 - View number of swaps other users have completed on the token
-- View news update on the current token that you want to swap
+- View news update on the current token that you want to swap or search for any topic of your choice
 
 ## Getting started
-Here is the link to our live website: [CrytoInfo](https://google.com)
+Here is the link to our live website: [CrytoInfo](https://crypto-info-hackathon.netlify.app/)
 
 ### Terminal
 - Once you have forked the repo, install the dependencies with the following command

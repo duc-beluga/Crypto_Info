@@ -52,7 +52,9 @@ function App() {
         <PacmanLoader color="#EC8E00" />
       </div>
     );
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) {
+    console.log(error)
+  };
 
   return (
     <div className="bg-gradient-to-b from-[#FFECCF] h-screen w-screen flex flex-col p-4">
