@@ -65,16 +65,16 @@ const AnalyticsCard = () => {
             onClick={logout}
             className="bg-red-200 cursor-pointer p-2 text-xs rounded-md font-bold flex items-center justify-center w-[20%] mb-4 text-red-600"
           >Logout</span>
-          <div className="flex gap-2 justify-between">
+          <div className="flex gap-2 justify-between sm:flex-col lg:flex-row">
             <div className="">
-              <h2 className="text-xl font-bold">{`Hello, ${userData.name}`}</h2>
+              <h2 className="text-xl lg:text-xl font-bold sm:text-lg">{`Hello, ${userData.name}`}</h2>
               <div className="flex items-center gap-2 mb-2">
-                <AiOutlineMail className="text-base text-[#EC8E00]" />
-                <p className="text-sm text-[#7e7e7e]">{userData.email}</p>
+                <AiOutlineMail className="text-base lg:text-base sm:text-sm text-[#EC8E00]" />
+                <p className="text-sm lg:text-sm sm:text-xs text-[#7e7e7e]">{userData.email}</p>
               </div>
               <div className="flex">
                 <div className="flex flex-col w-full">
-                  <h1 className="text-base font-bold">Wallet</h1>
+                  <h1 className="text-base lg:text-base sm:text-sm font-bold">Wallet</h1>
                   {
                     userData.connectedToWallet ? <div>
 
@@ -83,10 +83,10 @@ const AnalyticsCard = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-[#F0DCB1] w-[35%] rounded-lg p-2">
+            <div className="bg-[#F0DCB1] w-[35%] lg:w-[35%] sm:w-[100%] rounded-lg p-2 flex flex-col sm:flex-row lg:flex-col sm:items-center sm:justify-center lg:items-start lg:justify-start">
               <span className="text-sm font-bold text-[#646464]">#Swaps</span>
-              <div className="h-[70%] w-full flex items-center justify-center">
-                <span className="text-5xl text-[#EC8E00] font-bold">{userData.numberOfSwaps}</span>
+              <div className="h-[70%] w-full sm:w-[20%] lg:w-full flex items-center justify-center">
+                <span className="text-5xl lg:text-5xl sm:text-lg text-[#EC8E00] font-bold">{userData.numberOfSwaps}</span>
               </div>
             </div>
           </div>

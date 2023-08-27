@@ -18,7 +18,7 @@ const News = ({ newsData }) => {
         <h1 className="text-xl font-black">News</h1>
         <p className="text-sm font-semibold text-slate-400">{`showing results for "${searchNewsInput}"`}</p>
       </div>
-      <div className="grid sm:grid-cols-3 grid-cols-1 gap-6 h-full sm:overflow-y-clip overflow-y-scroll sm:mb-0 mb-4">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 h-full sm:overflow-y-clip overflow-y-scroll sm:mb-0 mb-4">
         {newsData.map((news, index) => <NewsCard key={index} news={news} />)}
       </div>
     </div>
