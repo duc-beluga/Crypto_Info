@@ -34,6 +34,7 @@ const SwapCard = () => {
       setSearchNewsInput(inputTok)
     }
   }, [inputAmount, inputTok, outputTok, searchNewsInput, setSearchNewsInput]);
+
   return (
     <div className="h-[70%] border border-slate-300 rounded-2xl shadow-lg flex flex-col bg-white p-4 gap-4">
       <h2 className="text-lg font-bold">Swap Icon</h2>
