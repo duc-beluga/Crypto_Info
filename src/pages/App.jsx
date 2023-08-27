@@ -14,8 +14,9 @@ function App() {
   const {searchNewsInput} = useContext(AppContext)
 
   useEffect(() => {
+    const API_KEY = "ada5cba1dd594c7e9e255f9e21388972"
     if (searchNewsInput.trim().length > 0) {
-      axios.get(`https://newsapi.org/v2/everything?q=${searchNewsInput}&language=en&apiKey=7af7686e42144af4bae62b5a7afce8a5`)
+      axios.get(`https://newsapi.org/v2/everything?q=${searchNewsInput}&language=en&apiKey=${API_KEY}`)
       .then((res) => {
         setNewsData(res.data.articles.slice(0, 5));
         setLoading(false);
@@ -27,7 +28,7 @@ function App() {
     } else {
       axios
         .get(
-          "https://newsapi.org/v2/everything?q=cryptocurrency&language=en&apiKey=7af7686e42144af4bae62b5a7afce8a5"
+          `https://newsapi.org/v2/everything?q=cryptocurrency&language=en&apiKey=${API_KEY}`
         )
         .then((res) => {
           setNewsData(res.data.articles.slice(0, 5));
