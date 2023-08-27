@@ -37,7 +37,7 @@ const SwapCard = () => {
               walletDetails: {
                 wallet: accounts[0]
               }
-            }).then(() => {
+            }).then(() => { 
               console.log("Updated successfully")
             }).catch((err) => {
               console.log("Error:", err)
