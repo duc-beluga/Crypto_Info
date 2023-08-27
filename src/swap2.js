@@ -12,7 +12,6 @@ const INFURA_URL = process.env.REACT_APP_INFURA_TEST_URL
 
 console.log(INFURA_URL)
 const provider = new ethers.providers.JsonRpcProvider(INFURA_URL)
-const poolAddress = '0xcbcdf9626bc03e24f779434178a73a0b4bad62ed'
 
 const quoterAddress = "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6"
 
@@ -58,8 +57,6 @@ const getPrice = async (inputAmount, inputTok, outputTok) => {
     provider
   )
 
-  const tokenSymbol0 = await tokenContract0.symbol()
-  const tokenSymbol1 = await tokenContract1.symbol()
   const tokenDecimals0 = await tokenContract0.decimals()
   const tokenDecimals1 = await tokenContract1.decimals()
 
