@@ -12,20 +12,23 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const {searchNewsInput} = useContext(AppContext)
+  const { searchNewsInput } = useContext(AppContext);
 
   useEffect(() => {
-    const API_KEY = "ada5cba1dd594c7e9e255f9e21388972"
+    const API_KEY = "0d5f4786904b4657be356d8f4a5d1cb6";
     if (searchNewsInput.trim().length > 0) {
-      axios.get(`https://newsapi.org/v2/everything?q=${searchNewsInput}&language=en&apiKey=${API_KEY}`)
-      .then((res) => {
-        setNewsData(res.data.articles.slice(0, 4));
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err);
-        setLoading(false);
-      });
+      axios
+        .get(
+          `https://newsapi.org/v2/everything?q=${searchNewsInput}&language=en&apiKey=${API_KEY}`
+        )
+        .then((res) => {
+          setNewsData(res.data.articles.slice(0, 4));
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+          setLoading(false);
+        });
     } else {
       axios
         .get(
@@ -42,7 +45,12 @@ function App() {
     }
   }, [searchNewsInput]);
 
-  if (loading) return <div className="bg-gradient-to-b from-[#FFECCF] h-screen w-screen flex items-center justify-center"><PacmanLoader color="#EC8E00" /></div>;
+  if (loading)
+    return (
+      <div className="bg-gradient-to-b from-[#FFECCF] h-screen w-screen flex items-center justify-center">
+        <PacmanLoader color="#EC8E00" />
+      </div>
+    );
   if (error) return <p>Error: {error.message}</p>;
 
   return (
