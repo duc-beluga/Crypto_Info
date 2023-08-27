@@ -15,7 +15,8 @@ function App() {
   const {searchNewsInput} = useContext(AppContext)
 
   useEffect(() => {
-    const API_KEY = "ada5cba1dd594c7e9e255f9e21388972"
+    const API_KEY = "ada5cba1dd594c7e9e255f9e21388972";
+    
     if (searchNewsInput.trim().length > 0) {
       axios.get(`https://newsapi.org/v2/everything?q=${searchNewsInput}&language=en&apiKey=${API_KEY}`)
       .then((res) => {

@@ -3,6 +3,9 @@ import React, { useState, useEffect, useContext } from "react";
 import getPrice from "../swap2";
 import { AppContext } from "../context/AppContext";
 import { BarLoader } from "react-spinners";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth, db, dbCheckIfNotExists } from "../firebase/firebase";
+import { doc, updateDoc } from "@firebase/firestore";
 
 const SwapCard = () => {
   const [output, setOutput] = useState(0);
@@ -25,6 +28,22 @@ const SwapCard = () => {
         /*
          * Accounts returns an array of accounts i.e. ["ac1", "ac1"]
          */
+        onAuthStateChanged(auth, async (user) => {
+          const exists = await dbCheckIfNotExists(user.uid)
+          if (exists) {
+            const updateRef = doc(db, "users", user.uid)
+            updateDoc(updateRef, {
+              connectedToWallet: true,
+              walletDetails: {
+                wallet: accounts[0]
+              }
+            }).then(() => {
+              console.log("Updated successfully")
+            }).catch((err) => {
+              console.log("Error:", err)
+            })
+          }
+        })
       } catch (err) {
         console.log("Error connecting");
       }

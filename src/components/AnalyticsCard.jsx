@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {FcGoogle} from "react-icons/fc";
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db, dbCheckIfNotExists } from "../firebase/firebase";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import {AiOutlineMail} from "react-icons/ai"
 
 const AnalyticsCard = () => {
@@ -20,15 +20,21 @@ const AnalyticsCard = () => {
     signInWithPopup(auth, provider).then(async (res) => {
       setUserData({...userData, name: res.user.displayName, email: res.user.email})
       setAuthenticated(true)
-
+      
       // Check if the user exists
       const exists = await dbCheckIfNotExists(res.user.uid)
       if (!exists) {
+        setUserData({...userData, name: res.user.displayName, email: res.user.email})
         const userRef = doc(db, "users", `${res.user.uid}`)
         setDoc(userRef, userData).then(() => {
           console.log("User created")
         }).catch((err) => {
           console.log("Error:", err)
+        })
+      } else {
+        const docRef = doc(db, "users", res.user.uid)
+        getDoc(docRef).then((res) => {
+          setUserData(res.data())
         })
       }
     }).catch((error) => {
@@ -48,8 +54,8 @@ const AnalyticsCard = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setAuthenticated(true)
         setUserData({...userData, name: user.displayName, email: user.email})
+        setAuthenticated(true)
         return
       } 
       setAuthenticated(false)
@@ -77,7 +83,7 @@ const AnalyticsCard = () => {
                   <h1 className="text-base lg:text-base sm:text-sm font-bold">Wallet</h1>
                   {
                     userData.connectedToWallet ? <div>
-
+                        <p className="text-xs">{`Connected: ${userData.walletDetails.wallet}`}</p>
                     </div> : <p className="text-xs">Connect to your wallet</p>
                   }
                 </div>
