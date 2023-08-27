@@ -12,6 +12,7 @@ const SwapCard = () => {
   const [loadingOutput, setLoadingOutput] = useState(false);
   const [account, setAccount] = useState(null);
   const [error, setError] = useState(null);
+  const [isModalVisible, setModalVisible] = useState(false);
 
   const handleConnetWallet = async () => {
     if (window.ethereum) {
@@ -25,7 +26,7 @@ const SwapCard = () => {
         console.log("Error connecting");
       }
     } else {
-      console.log("not detected");
+      setModalVisible(true);
     }
   };
 
@@ -55,6 +56,35 @@ const SwapCard = () => {
 
   return (
     <div className="h-[70%] border border-slate-300 rounded-2xl shadow-lg flex flex-col bg-white p-4 gap-4">
+      <div
+        id="staticModal"
+        data-modal-backdrop="static"
+        tabindex="-1"
+        aria-hidden="true"
+        class="fixed z-50  w-44 p-4 "
+      >
+        {isModalVisible && (
+          <div class="relative w-full max-w-2xl max-h-full pl-1">
+            {/* <!-- Modal content --> */}
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              {/* <!-- Modal body --> */}
+              <div class="p-6 space-y-6">
+                <p class="text-base leading-relaxed text-gray-500 ">
+                  Please Install MetaMask
+                </p>
+                <button
+                  data-modal-hide="staticModal"
+                  type="button"
+                  class="text-white bg-[#F0DCB1] hover:bg-[#D7C49E] font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  onClick={() => setModalVisible(false)}
+                >
+                  I accept
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
       <h2 className="text-lg font-bold">Swap Icon</h2>
       <div className="bg-[#F2F2F2] h-2/5 rounded-xl p-3">
         <div className="flex justify-between">
