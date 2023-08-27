@@ -21,6 +21,10 @@ const SwapCard = () => {
           method: "eth_requestAccounts",
         });
         console.log(accounts);
+        /* 
+        * Accounts returns an array of accounts i.e. ["ac1", "ac1"]
+        */
+
       } catch (err) {
         console.log("Error connecting");
       }
@@ -54,7 +58,7 @@ const SwapCard = () => {
   }, [inputAmount, inputTok, outputTok, searchNewsInput, setSearchNewsInput]);
 
   return (
-    <div className="h-[70%] border border-slate-300 rounded-2xl shadow-lg flex flex-col bg-white p-4 gap-4">
+    <div className="sm:h-[70%] h-[100%] border border-slate-300 rounded-2xl shadow-lg flex flex-col bg-white p-4 gap-4">
       <h2 className="text-lg font-bold">Swap Icon</h2>
       <div className="bg-[#F2F2F2] h-2/5 rounded-xl p-3">
         <div className="flex justify-between">
@@ -94,7 +98,7 @@ const SwapCard = () => {
         </p>
       </div>
       <button
-        className="h-1/5 border-none rounded-lg bg-[#FFECCF] text-[#EC8E00] font-bold"
+        className="h-1/5 border-none rounded-lg bg-[#FFECCF] text-[#EC8E00] font-bold sm:py-0 py-4 cursor-pointer"
         onClick={handleConnetWallet}
       >
         Connect Wallet

@@ -9,9 +9,9 @@ const Navbar = () => {
 
   return (
     <div 
-      className="py-0 m-0 mb-4 px-0 w-full flex flex-row items-center justify-between"
+      className="py-0 m-0 sm:mb-4 mb-8 px-0 w-full flex sm:flex-row flex-col sm:items-center items-start sm:gap-0 gap-3 justify-between sm:mt-0 mt-4"
     >
-      <div className="flex flex-row items-center gap-12">
+      <div className="flex flex-row items-center sm:justify-normal justify-between sm:w-[50%] w-[100%] gap-12">
         <p className="font-extrabold text-2xl">CryptoInfo</p>
         <div className="flex items-center gap-6">
           <a href="/" className="font-semibold text-[#EC8E00]">
@@ -23,7 +23,7 @@ const Navbar = () => {
         </div>
       </div>
       <div 
-        className="bg-white w-1/4 flex flex-row items-center rounded-lg border border-slate-300 gap-2 ml-0 shadow-sm"
+        className="bg-white sm:w-1/4 w-[100%] flex flex-row items-center rounded-lg border border-slate-300 gap-2 ml-0 shadow-sm"
         style={{
           padding: ".6rem .8rem",
         }}

@@ -2,7 +2,7 @@ import React from "react";
 
 const NewsCard = ({ news, index }) => {
   return (
-    <div className="flex flex-col h-full w-full rounded-lg">
+    <div className="flex flex-col sm:h-full h-96 w-full rounded-lg">
       <div
         className="w-full h-1/2 rounded-lg"
         style={{

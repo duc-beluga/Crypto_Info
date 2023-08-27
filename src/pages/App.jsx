@@ -48,12 +48,12 @@ function App() {
   return (
     <div className="bg-gradient-to-b from-[#FFECCF] h-screen flex flex-col p-4">
       <Navbar />
-      <div className="flex w-full h-full gap-8">
-        <div className="flex flex-col w-[30%] h-full gap-8">
+      <div className="flex w-full h-full gap-8 sm:flex-row flex-col">
+        <div className="flex flex-col sm:w-[30%] w-[100%] h-full gap-8">
           <SwapCard />
           <AnalyticsCard />
         </div>
-        <div className="w-[70%] h-full">
+        <div className="sm:w-[70%] w-[100%] h-full">
           <News newsData={newsData} />
         </div>
       </div>
