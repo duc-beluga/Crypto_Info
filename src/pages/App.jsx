@@ -1,45 +1,59 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Navbar from "../components/Navbar";
 import AnalyticsCard from "../components/AnalyticsCard";
 import SwapCard from "../components/SwapCard";
 import News from "../components/News";
-import useFetch from "../hooks/useFetch";
 import axios from "axios";
+import { AppContext } from "../context/AppContext";
 
 function App() {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const {searchNewsInput} = useContext(AppContext)
+
   useEffect(() => {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=7af7686e42144af4bae62b5a7afce8a5"
-      )
+    if (searchNewsInput.trim().length > 0) {
+      axios.get(`https://newsapi.org/v2/everything?q=${searchNewsInput}&language=en&apiKey=7af7686e42144af4bae62b5a7afce8a5`)
       .then((res) => {
-        setNewsData(res.data.articles.slice(0, 4));
+        setNewsData(res.data.articles.slice(0, 5));
         setLoading(false);
       })
       .catch((err) => {
         setError(err);
         setLoading(false);
       });
-  }, []);
-
-  console.log("asdsad", newsData);
+    } else {
+      axios
+        .get(
+          "https://newsapi.org/v2/everything?q=cryptocurrency&language=en&apiKey=7af7686e42144af4bae62b5a7afce8a5"
+        )
+        .then((res) => {
+          setNewsData(res.data.articles.slice(0, 5));
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError(err);
+          setLoading(false);
+        });
+    }
+  }, [searchNewsInput]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
-    <div className="bg-gradient-to-b from-[#F0DCB1] h-screen flex flex-col pr-4">
+    <div className="bg-gradient-to-b from-[#FFECCF] h-screen flex flex-col p-4">
       <Navbar />
-      <div className="flex flex-grow">
-        <div className="flex flex-col w-80 mr-7 ">
+      <div className="flex w-full h-full gap-8">
+        <div className="flex flex-col w-[30%] h-full gap-8">
           <SwapCard />
           <AnalyticsCard />
         </div>
-
-        <News newsData={newsData} />
+        <div className="w-[70%] h-full">
+          <News newsData={newsData} />
+        </div>
       </div>
     </div>
   );
