@@ -50,7 +50,7 @@ const Navbar = () => {
         <span 
           className="text-[.8rem] text-[#A3A3A3] font-bold cursor-pointer"
           onClick={() => setSearchNewsInput(searchInput)}
-        >Enter</span>
+        >Enter</span> 
       </div>
     </div>
   );
