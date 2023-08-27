@@ -11,16 +11,15 @@ const NewsCard = ({ news, index }) => {
       />
 
       <div className="text-xs h-1/2">
-        <p className=" line-clamp-3 ">{news.title}</p>
+        <p className="line-clamp-3 ">{news.title}</p>
       </div>
       {/* <div className="overflow-hidden text-xs h-1/4"></div> */}
       <div className="flex justify-between">
         <p className="text-xs">{news.author}</p>
-        <a href={news.url} className="text-xs text-blue-500">
-          Read more
-        </a>
+        <a href={news.url} className="text-xs text-blue-500">Read more</a>
       </div>
     </div>
   );
 };
+
 export default NewsCard;
