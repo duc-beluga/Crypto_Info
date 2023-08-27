@@ -34,6 +34,7 @@ const SwapCard = () => {
       setSearchNewsInput(inputTok)
     }
   }, [inputAmount, inputTok, outputTok, searchNewsInput, setSearchNewsInput]);
+
   return (
     <div className="h-[70%] border border-slate-300 rounded-2xl shadow-xl flex flex-col bg-white p-4 gap-4">
       <h2 className="text-lg font-bold">Swap Icon</h2>
@@ -42,7 +43,7 @@ const SwapCard = () => {
           <h3 className="text-sm text-[#A3A3A3]">You pay</h3>
           <select
             name="Coin"
-            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs"
+            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs p-1"
             value={inputTok}
             onChange={(e) => setInputTok(e.target.value)}
           >
@@ -62,7 +63,7 @@ const SwapCard = () => {
           <h3 className="text-sm text-[#A3A3A3]">You receive</h3>
           <select
             name="Coin"
-            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs"
+            className="bg-[#F0DCB1] rounded-md focus:outline-none text-xs p-1"
           >
             <option value="1">ETH</option>
           </select>
