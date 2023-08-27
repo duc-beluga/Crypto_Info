@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {FcGoogle} from "react-icons/fc";
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db, dbCheckIfNotExists } from "../firebase/firebase";
-import { collection, doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import {AiOutlineMail} from "react-icons/ai"
 
 const AnalyticsCard = () => {
@@ -60,7 +60,7 @@ const AnalyticsCard = () => {
     <>
       {
         authenticated ?
-        <div className="flex flex-col h-[30%] border border-slate-300 rounded-2xl shadow-xl bg-white p-3">
+        <div className="flex flex-col sm:h-[30%] h-[100%] border border-slate-300 rounded-2xl shadow-xl bg-white p-3">
           <span 
             onClick={logout}
             className="bg-red-200 cursor-pointer p-2 text-xs rounded-md font-bold flex items-center justify-center w-[20%] mb-4 text-red-600"
