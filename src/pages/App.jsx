@@ -5,6 +5,7 @@ import SwapCard from "../components/SwapCard";
 import News from "../components/News";
 import axios from "axios";
 import { AppContext } from "../context/AppContext";
+import { PacmanLoader } from "react-spinners";
 
 function App() {
   const [newsData, setNewsData] = useState([]);
@@ -41,7 +42,7 @@ function App() {
     }
   }, [searchNewsInput]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div className="bg-gradient-to-b from-[#FFECCF] h-screen w-screen flex items-center justify-center"><PacmanLoader color="#EC8E00" /></div>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (

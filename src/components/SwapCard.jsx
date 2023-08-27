@@ -66,7 +66,6 @@ const SwapCard = () => {
             onChange={(e) => setInputTok(e.target.value)}
           >
             <option value="WBTC">WBTC</option>
-            {/* <option value="USDC">USDC</option> */}
             <option value="DAI">DAI</option>
           </select>
         </div>
