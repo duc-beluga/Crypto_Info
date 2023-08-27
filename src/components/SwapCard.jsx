@@ -9,9 +9,27 @@ const SwapCard = () => {
   const [inputAmount, setInputAmount] = useState(0);
   const [inputTok, setInputTok] = useState("WBTC");
   const [outputTok, setOutputTok] = useState("ETH");
-  const [loadingOutput, setLoadingOutput] = useState(false)
+  const [loadingOutput, setLoadingOutput] = useState(false);
+  const [account, setAccount] = useState(null);
+  const [error, setError] = useState(null);
 
-  const {setSearchNewsInput, searchNewsInput} = useContext(AppContext)
+  const handleConnetWallet = async () => {
+    if (window.ethereum) {
+      console.log("detected");
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        console.log(accounts);
+      } catch (err) {
+        console.log("Error connecting");
+      }
+    } else {
+      console.log("not detected");
+    }
+  };
+
+  const { setSearchNewsInput, searchNewsInput } = useContext(AppContext);
 
   const handleChange = (e) => {
     setInputAmount(e.target.value);
@@ -19,19 +37,19 @@ const SwapCard = () => {
 
   useEffect(() => {
     const fetchPrice = async () => {
-      setLoadingOutput(true)
+      setLoadingOutput(true);
       const res = await getPrice(inputAmount, inputTok, outputTok);
       setOutput(Math.round(res * 100000) / 100000);
-      setLoadingOutput(false)
+      setLoadingOutput(false);
     };
     if (inputAmount > 0) {
       fetchPrice();
     } else {
-      setLoadingOutput(false)
-      setOutput(0)
+      setLoadingOutput(false);
+      setOutput(0);
     }
     if (searchNewsInput.trim().length === 0) {
-      setSearchNewsInput(inputTok)
+      setSearchNewsInput(inputTok);
     }
   }, [inputAmount, inputTok, outputTok, searchNewsInput, setSearchNewsInput]);
 
@@ -68,14 +86,18 @@ const SwapCard = () => {
             <option value="1">ETH</option>
           </select>
         </div>
-        <p className="text-4xl w-full rounded-md focus:outline-none bg-transparent">{
-          loadingOutput ? <BarLoader 
-            color="#EC8E00" 
-            className="mt-6 w-full"
-          /> : output
-        }</p>
+        <p className="text-4xl w-full rounded-md focus:outline-none bg-transparent">
+          {loadingOutput ? (
+            <BarLoader color="#EC8E00" className="mt-6 w-full" />
+          ) : (
+            output
+          )}
+        </p>
       </div>
-      <button className="h-1/5 border-none rounded-lg bg-[#FFECCF] text-[#EC8E00] font-bold">
+      <button
+        className="h-1/5 border-none rounded-lg bg-[#FFECCF] text-[#EC8E00] font-bold"
+        onClick={handleConnetWallet}
+      >
         Connect Wallet
       </button>
     </div>
