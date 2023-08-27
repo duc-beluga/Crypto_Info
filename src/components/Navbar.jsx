@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const { setSearchNewsInput } = useContext(AppContext);
+  const [searchInput, setSearchInput] = useState("")
 
   return (
     <div 
@@ -22,7 +23,7 @@ const Navbar = () => {
         </div>
       </div>
       <div 
-        className="bg-white w-1/4 flex flex-row items-center rounded-lg border-slate-300 gap-2 ml-0"
+        className="bg-white w-1/4 flex flex-row items-center rounded-lg border border-slate-300 gap-2 ml-0 shadow-sm"
         style={{
           padding: ".6rem .8rem",
         }}
@@ -32,7 +33,8 @@ const Navbar = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
+            cursor: "pointer"
           }}
         >
           <FontAwesomeIcon icon={faMagnifyingGlass} className="text-sm text-slate-400" />
@@ -41,8 +43,14 @@ const Navbar = () => {
           type="search"
           placeholder="Search news..."
           className="focus:outline-none text-sm m-0 p-0 w-full bg-transparent"
-          onChange={(e) => setSearchNewsInput(e.target.value)}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          onMouseEnter={() => setSearchNewsInput(searchInput)}
         />
+        <span 
+          className="text-[.8rem] text-[#A3A3A3] font-bold cursor-pointer"
+          onClick={() => setSearchNewsInput(searchInput)}
+        >Enter</span> 
       </div>
     </div>
   );
